@@ -17,7 +17,6 @@ fn main() {
         stdin().read_line(&mut input).expect("Failed to read line");
 
         let input = input.trim().to_lowercase();
-        println!("Input: {}", input);
 
         if input.eq_ignore_ascii_case("exit") {
             break;
@@ -51,6 +50,8 @@ fn add_employee(company: &mut Company, employee: String, department: String) {
         .or_insert(Vec::new());
 
     dept.push(employee.to_lowercase());
+
+    println!("Employee {} added to department {}", employee, department);
 }
 
 fn list_department(company: &Company, department: String) {
