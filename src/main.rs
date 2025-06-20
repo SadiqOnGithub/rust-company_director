@@ -10,9 +10,9 @@ fn main() {
 
     add_employee(&mut company, "rohan".to_string(), "Engineering".to_string());
     add_employee(&mut company, "mohan".to_string(), "Engineering".to_string());
-    add_employee(&mut company, "ohan".to_string(), "Engineering".to_string());
+    add_employee(&mut company, "aohan".to_string(), "Engineering".to_string());
     add_employee(&mut company, "sohan".to_string(), "Engineering".to_string());
-    list_department(&company, "Engineerin".to_string());
+    list_department(&company, "Engineering".to_string());
 }
 
 fn add_employee(company: &mut Company, employee: String, department: String) {
@@ -26,7 +26,9 @@ fn add_employee(company: &mut Company, employee: String, department: String) {
 fn list_department(company: &Company, department: String) {
     match company.get(&department.to_lowercase()) {
         Some(dept) => {
-            for employee in dept {
+            let mut sorted_dept = dept.clone();
+            sorted_dept.sort();
+            for employee in sorted_dept {
                 println!("{}", employee)
             }
         }
