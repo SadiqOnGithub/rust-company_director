@@ -21,6 +21,10 @@ fn main() {
 
         let input = input.trim().to_lowercase();
         println!("Input: {}", input);
+
+        if input.eq_ignore_ascii_case("exit") {
+            break;
+        }
     }
 }
 
