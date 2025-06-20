@@ -26,6 +26,15 @@ fn main() {
             break;
         } else if input.eq_ignore_ascii_case("list all") {
             list_all(&company);
+        } else if input.starts_with("list ") {
+            let parts: Vec<&str> = input.split_whitespace().collect();
+            if parts.len() == 2 {
+                list_department(&company, parts[1].to_string());
+            } else {
+                println!("Invalid command")
+            }
+        } else {
+            println!("Invalid command")
         }
     }
 }
