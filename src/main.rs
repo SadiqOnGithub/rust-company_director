@@ -24,6 +24,8 @@ fn main() {
 
         if input.eq_ignore_ascii_case("exit") {
             break;
+        } else if input.eq_ignore_ascii_case("list all") {
+            list_all(&company);
         }
     }
 }
