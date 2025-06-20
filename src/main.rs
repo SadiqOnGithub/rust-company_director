@@ -52,13 +52,17 @@ fn list_department(company: &Company, department: String) {
 }
 
 fn list_all(company: &Company) {
-    for (department, employees) in company {
-        print!("{}", department.to_uppercase());
-        println!(": {}", employees.len());
-        let mut sorted_employees = employees.clone();
-        sorted_employees.sort();
-        for employee in sorted_employees {
-            println!("-{}", employee);
+    if company.keys().len() == 0 {
+        println!("No departments found");
+    } else {
+        for (department, employees) in company {
+            print!("{}", department.to_uppercase());
+            println!(": {}", employees.len());
+            let mut sorted_employees = employees.clone();
+            sorted_employees.sort();
+            for employee in sorted_employees {
+                println!("-{}", employee);
+            }
         }
     }
 }
