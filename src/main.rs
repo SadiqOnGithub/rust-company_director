@@ -1,6 +1,6 @@
 use std::{
     collections::HashMap,
-    // io::{stdin, stdout},
+    io::{stdin, stdout},
 };
 
 type Company = HashMap<String, Vec<String>>;
@@ -8,19 +8,20 @@ type Company = HashMap<String, Vec<String>>;
 fn main() {
     let mut company: Company = HashMap::new();
 
-    add_employee(&mut company, "ram".to_string(), "Sales".to_string());
-    add_employee(&mut company, "sam".to_string(), "Sales".to_string());
-    add_employee(&mut company, "nam".to_string(), "Sales".to_string());
-    add_employee(&mut company, "bam".to_string(), "Sales".to_string());
+    loop {
+        println!("\nEnter command:");
+        println!("  add <name> to <department>");
+        println!("  list <department>");
+        println!("  list all");
+        println!("  exit");
 
-    add_employee(&mut company, "rohan".to_string(), "Engineering".to_string());
-    add_employee(&mut company, "mohan".to_string(), "Engineering".to_string());
-    add_employee(&mut company, "sohan".to_string(), "Engineering".to_string());
-    add_employee(&mut company, "pohan".to_string(), "Engineering".to_string());
+        let mut input = String::new();
 
-    list_department(&company, "Engineering".to_string());
+        stdin().read_line(&mut input).expect("Failed to read line");
 
-    list_all(&company);
+        let input = input.trim().to_lowercase();
+        println!("Input: {}", input);
+    }
 }
 
 fn add_employee(company: &mut Company, employee: String, department: String) {
@@ -51,7 +52,7 @@ fn list_all(company: &Company) {
         let mut sorted_employees = employees.clone();
         sorted_employees.sort();
         for employee in sorted_employees {
-            println!("{}", employee);
+            println!("-{}", employee);
         }
     }
 }
