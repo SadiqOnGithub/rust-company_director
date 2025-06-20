@@ -23,7 +23,7 @@ list Engineering
 list Sales
 list all
 exit
-````
+```
 
 Example output:
 
@@ -56,8 +56,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Then clone the repository:
 
 ```bash
-git clone https://github.com/your-username/company-director-rs.git
-cd company-director-rs
+git clone git@github.com:SadiqOnGithub/rust-company_director.git
+cd rust-company_director
 ```
 
 Build and run:
