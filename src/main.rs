@@ -1,7 +1,4 @@
-use std::{
-    collections::HashMap,
-    io::{stdin, stdout},
-};
+use std::{collections::HashMap, io::stdin};
 
 type Company = HashMap<String, Vec<String>>;
 
@@ -30,6 +27,15 @@ fn main() {
             let parts: Vec<&str> = input.split_whitespace().collect();
             if parts.len() == 2 {
                 list_department(&company, parts[1].to_string());
+            } else {
+                println!("Invalid command")
+            }
+        } else if input.starts_with("add ") {
+            let parts: Vec<_> = input.split_whitespace().collect();
+            if parts.len() == 4 && parts[2] == "to" {
+                let employee = parts[1].to_string();
+                let department = parts[3].to_string();
+                add_employee(&mut company, employee, department);
             } else {
                 println!("Invalid command")
             }
